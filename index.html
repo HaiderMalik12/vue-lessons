@@ -8,15 +8,23 @@
 
 <body>
     <div id="app">
-    <span v-bind:title = "message">
-       Show me date
+    <span v-if ="isResults">
+      Now you can see the Results
     </span>
+    <ol>
+        <li v-for="c in companies">{{c.name}}</li>
+    </ol>
     </div>
     <script>
    var app = new Vue({
        el : '#app',
        data: {
-          message: 'Hello vue!' + new Date().toLocaleString()
+          isResults: true,
+          companies: [
+                    { name: 'egghead'},
+                    {name: 'google'},
+                    { name: 'facebook'},
+                    ]
        }
    })
     </script>
